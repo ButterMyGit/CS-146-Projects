@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://stevens-cs546-cs554.github.io/hw1_helper.js" async></script>
 </head>
-<body style="background-color: grey;">
+<body>
     <h1 class="text-center">CS 146 Resources</h1>
     <div class="content">
+        <h2 class="text-center">CA Office Hours</h2>
         <table>
-            <h2 class="text-center">CA Office Hours</h2>
-            <th></th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>1:00pm</td>
                 <td class="event blue" rowspan="2">David & Sean
@@ -89,7 +94,27 @@
                 <td></td>
                 <td></td>
             </tr>
+            </tbody>
         </table>
+    </div>
+    <div class="content">
+        <h2 class="text-center">Useful Links</h2>
+        <ul>
+            <li><a href="https://dash.chubbycroc.top">My Raspberry Pi's Dashboard</a></li>
+            <li><a href="https://github.com/">GitHub</a></li>
+            <li><a href="https://sit.instructure.com/">Canvas</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+    </div>
+    <div class="content">
+        <h2 class="text-center">Cat Pictures</h2>
+        <div class="image-gallery">
+            <img src="Images/aia.jpg" alt="My cat Aia">
+            <img src="Images/Bingus.webp" alt="A domesticated bingus">
+            <img src="Images/cutecat.jpg" alt="A cute cat">
+            <img src="Images/mrboom.jpg" alt="Mr. Boom">
+            <img src="Images/rigby.jpeg" alt="Rigby the cat">
+            <img src="Images/whatdatuna.jpg" alt="Uh... what da tuna?">
+        </div>
     </div>
 </body>
 </html>
