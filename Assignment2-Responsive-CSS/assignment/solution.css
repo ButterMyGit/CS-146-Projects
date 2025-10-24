@@ -1,0 +1,120 @@
+body {
+    background-color: #eee;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    background-color: #49516f;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+}
+
+header span {
+    margin: 0;
+    color: white;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+    margin: 10px;
+    border: 5px solid white;
+    border-radius: 20%;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post {
+    flex-grow: 1;
+}
+
+.post-body {
+    height: 200px;
+}
+
+.post-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.post-pic {
+    height: 200px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+@media (min-width: 999px) {
+    .posts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post {
+        max-width: 800px;
+        flex: 1 1 auto;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 998px) {
+    header {
+        justify-content: center;
+    }
+
+    .posts {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .post-container {
+        flex-direction: column;
+    }
+
+    .post {
+        flex-shrink: 1 1 50%;
+    }
+
+    .post-pic {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 399px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        border-radius: 50%;
+    }
+
+    .posts {
+        flex-basis: auto;
+        flex-direction: column;
+    }
+
+    .post-container {
+        flex-direction: column;
+    }
+
+    .post-pic {
+        width: 100%;
+        height: auto;
+    }
+}
