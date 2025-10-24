@@ -32,6 +32,7 @@ header span {
 .posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .post {
@@ -50,6 +51,7 @@ header span {
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
+    overflow: auto; /* I added this for when the display size gets too small */
 }
 
 .post-pic {
@@ -67,6 +69,11 @@ header span {
     .post {
         max-width: 800px;
         flex: 1 1 auto;
+        width: 100%;
+    
+    .post-container {
+        height: 100%;
+    }
     }
 }
 
@@ -85,12 +92,13 @@ header span {
     }
 
     .post {
-        flex-shrink: 1 1 50%;
+        flex: 1 1 50%;
     }
 
     .post-pic {
         width: 100%;
         height: auto;
+        margin-left: 10px;
     }
 }
 
@@ -116,5 +124,6 @@ header span {
     .post-pic {
         width: 100%;
         height: auto;
+        margin-left: 10px;
     }
 }
