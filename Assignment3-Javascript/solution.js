@@ -1,8 +1,16 @@
+let result = 0; // the current number that displays on the calculator's screen
+let buffer = null; // previously saved number
+let currentOp = null; // current calculator operation
+setDisplay("0"); // initialize the display to 0
+
 /**
  * Resets the state of the calculator and the display
  */
 function resetCalc() {
-   // implement
+   result = 0;
+   buffer = null;
+   currentOp = null;
+   setDisplay("0"); // this sets the display to result, which in this case will be "0"
 }
 
 /**
@@ -10,7 +18,7 @@ function resetCalc() {
  * @param {String} str the string to set the inner text to
  */
 function setDisplay(str) {
-   // implement
+   document.getElementById("output").innerText = str; // gets the element "output" and sets the inside text to be whatever string is passed
 }
 
 /**
@@ -18,7 +26,7 @@ function setDisplay(str) {
  * Hint: you can use a global variable for the result
  */
 function getResult() {
-   // implement
+   return Number(result); // need to have Number because result can sometimes be a string
 }
 
 /**
@@ -26,7 +34,10 @@ function getResult() {
  * @param {Number} num the number that was pressed
  */
 function pressNum(num) {
-   // implement
+   result = Number(result.toString() + num.toString()); // concatenate the current result with the new number pressed
+   if (result > 999999999) result = 999999999;
+   if (result < -999999999) result = -999999999;
+   setDisplay(result.toString());
 }
 
 /**
@@ -35,7 +46,11 @@ function pressNum(num) {
  * @param {String} op the operation pressed, either: +,-,*,/
  */
 function pressOp(op) {
-   // implement
+   if (currentOp == null || result !== 0) {
+      buffer = result;
+      result = 0;
+   }
+   currentOp = op;
 }
 
 /**
@@ -44,5 +59,31 @@ function pressOp(op) {
  * operation, do nothing.
  */
 function pressEquals() {
-   // implement
+   if (currentOp == null || buffer == null) return; // if there is no operation or buffer, do nothing
+   
+   let a = buffer;
+   let b = result;
+   let output; 
+
+   if (currentOp === "+") output = a + b;
+   else if (currentOp === "-") output = a - b;
+   else if (currentOp === "*") output = a * b;
+   else if (currentOp === "/") {
+      if (b === 0) { // handle division by zero by giving an error
+         setDisplay("ERROR");
+         result = 0;
+         buffer = null;
+         currentOp = null;
+         return;
+      }
+      output = a / b;
+   }
+
+   if (output > 999999999) output = 999999999;
+   if (output < -999999999) output = -999999999;
+
+   result = output;
+   buffer = null;
+   currentOp = null;
+   setDisplay(result.toString());
 }
